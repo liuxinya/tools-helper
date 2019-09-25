@@ -1,6 +1,6 @@
+
 // 基于时间缓冲操作 防止函数短时间内执行很多次 多少秒之后执行
-// 模仿 Rxjs 的节流
-class  Throttle {
+class Throttle {
     constructor() {
         this.firTime = null;
         this.secTime = null;
@@ -9,24 +9,22 @@ class  Throttle {
             noPassF: true
         }; // 不让外界直接调起oper函数 因为要节流 必须通过节流的时间段
         this.timer = null;
-        this.rate = 200; 
+        this.rate = 200;
     }
     // 这是多长时间内不可操作的节流  间隔后的操作需要手动触发
     throttleTime(rate) {
-        if(rate) this.rate = rate;
-        if(!this.firTime) {
+        if (rate) this.rate = rate;
+        if (!this.firTime) {
             this.firTime = Date.now() - this.rate;
             this.flag.noPassF = false;
-        }else {
+        } else {
             this.flag.noPassF = true;
         }
         this.secTime = Date.now();
         this.flag.passF = false;
-        this.flag.noPassF && this.noPassOper();
-        if(this.secTime - this.firTime >= this.rate) {
+        if (this.secTime - this.firTime >= this.rate) {
             this.flag.passF = true;
             this.flag.noPassF = false;
-            this.oper && this.passOper();
             this.firTime = this.secTime;
         }
         return this;
@@ -41,7 +39,6 @@ class  Throttle {
     }
 }
 
-let throttle = new Throttle();
+let UThrottle = new Throttle();
 
-export { throttle }
-
+export { UThrottle }

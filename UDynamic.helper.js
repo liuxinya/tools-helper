@@ -6,19 +6,17 @@ class UDynamicService {
             data: {},
             events: {}
         }, option)
-        // -----------------------------------
         let component = Vue.extend(option.component);
         let instance = new component({
             propsData: option.data
         });
-        // for(let i in option.data) {
-        //     instance.$options.props[i] = option.data[i];
-        // }
-        for(let i in option.events) {
-            instance.$on(i, option.events[i]);
+        for (let i in option.events) {
+            if (option.events.hasOwnProperty(i)) {
+                instance.$on(i, option.events[i]);
+            }
         }
         let temp = instance.$mount();
-        if(option.selector) {
+        if (option.selector) {
             option.selector.appendChild(temp.$el);
         } else {
             document.body.appendChild(temp.$el);
@@ -27,11 +25,7 @@ class UDynamicService {
     }
     // 手动的关闭一个组件
     destroy(instance) {
-        if(instance.$el) instance.$el.remove();
-    }
-    // 清空所有的组件
-    destroyAll() {
-
+        if (instance.$el) instance.$el.remove();
     }
 }
 let dy = new UDynamicService();
