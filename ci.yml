@@ -1,19 +1,13 @@
 Global:
   tool: build_submitter
-
 Default:
-  profile: [buildProduction]
-
+  profile: [main]
 Profiles:
-
   - profile:
-    name: buildProduction
-    env: DECK_CENTOS7U5_K3
-    command: export NODE_ENV=production && sh scripts/build.sh
-    release: true
-
-  - profile:
-    name: buildDevelopment
-    env: DECK_CENTOS7U5_K3
-    command: export NODE_ENV=development && sh scripts/build.sh
+    name: main
+    env: DECK_CENTOS4U3_K3
+    command: >-
+      export CDN_TARGET=$CDN_TARGET &&
+      export AGILE_MODULE_NAME=$AGILE_MODULE_NAME &&
+      sh ./build.sh
     release: true
