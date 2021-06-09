@@ -1,6 +1,6 @@
 {
   "name": "@baidu/bce-portal-services",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "项目通用工具",
   "main": "lib/index.js",
   "directories": {
@@ -8,8 +8,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest --config jestconfig.json",
-    "preversion": "npm version patch & npm run build"
+    "test": "jest --config jestconfig.json"
   },
   "author": "",
   "license": "ISC",
@@ -21,13 +20,5 @@
   },
   "files": [
     "lib/**/*"
-  ],
-  "dependencies": {
-    "@types/react-dom": "^17.0.0",
-    "@baidu/bce-portal-helper": "^1.0.1",
-    "react-dom": "^17.0.2",
-    "axios": "^0.21.1",
-    "antd": "^4.8.2",
-    "@baidu/ioc": "^1.0.0"
-  }
+  ]
 }
