@@ -1,6 +1,6 @@
 import message from 'antd/lib/message';
 import Axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
-import {Injectable} from '@baidu/ioc';
+import {Injectable, Ioc} from '@baidu/ioc';
 import {isString, replaceOfString} from '@baidu/bce-portal-helper';
 
 @Injectable()
@@ -74,6 +74,8 @@ export class UNetService {
     }
 }
 
+// 给不想用的依赖注入的人一个便捷方式
+export const netService = Ioc(UNetService);
 export interface UInterceptor {
     response: (response: AxiosResponse) => Promise<AxiosResponse>;
     request: (config: AxiosRequestConfig) => Promise<AxiosRequestConfig>;
@@ -110,4 +112,10 @@ export interface PageResponseObj<T> {
     pageSize: number;
     totalCount: number;
     result: T[];
+}
+
+/** 分页请求 */
+export interface PageRequestObj {
+    pageNo: number;
+    pageSize: number;
 }

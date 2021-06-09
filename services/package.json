@@ -1,7 +1,7 @@
 {
   "name": "@baidu/bce-portal-services",
-  "version": "1.0.1",
-  "description": "项目通用工具",
+  "version": "1.0.3",
+  "description": "项目通用服务、基于react的动态组件、发布订阅、请求",
   "main": "lib/index.js",
   "directories": {
     "test": "test"
