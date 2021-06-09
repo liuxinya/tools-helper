@@ -1,0 +1,29 @@
+{
+  "name": "@baidu/bce-portal-helper",
+  "version": "1.0.1",
+  "description": "项目通用工具",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config jestconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "jest": "^27.0.4",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.2"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
+}
