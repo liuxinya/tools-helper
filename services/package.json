@@ -1,6 +1,6 @@
 {
   "name": "@baidu/bce-portal-services",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "项目通用服务、基于react的动态组件、发布订阅、请求",
   "main": "lib/index.js",
   "directories": {
@@ -17,6 +17,14 @@
     "jest": "^27.0.4",
     "ts-jest": "^27.0.3",
     "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "@types/react-dom": "^17.0.0",
+    "@baidu/bce-portal-helper": "^1.0.1",
+    "@baidu/ioc": "^1.0.0",
+    "axios": "^0.21.0",
+    "antd": "^4.8.2",
+    "react-dom": "^17.0.2"
   },
   "files": [
     "lib/**/*"

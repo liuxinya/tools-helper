@@ -660,9 +660,9 @@
     "@types/react" "*"
 
 "@types/react@*":
-  version "17.0.10"
-  resolved "http://registry.npm.baidu-int.com/@types%2freact/-/react-17.0.10.tgz#c8bb4e37cc642f7cc5532959cb5e2ead6c74dec9"
-  integrity sha1-yLtON8xkL3zFUylZy14urWx03sk=
+  version "17.0.11"
+  resolved "http://registry.npm.baidu-int.com/@types%2freact/-/react-17.0.11.tgz#67fcd0ddbf5a0b083a0f94e926c7d63f3b836451"
+  integrity sha1-Z/zQ3b9aCwg6D5TpJsfWPzuDZFE=
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -841,7 +841,7 @@ asynckit@^0.4.0:
   resolved "http://registry.npm.baidu-int.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
-axios@^0.21.1:
+axios@^0.21.0:
   version "0.21.1"
   resolved "http://registry.npm.baidu-int.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
   integrity sha1-IlY0gZYvTWvemnbVFu8OXTwJsrg=

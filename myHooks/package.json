@@ -1,6 +1,6 @@
 {
   "name": "@baidu/bce-portal-hooks",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "项目通用hook",
   "main": "lib/index.js",
   "directories": {
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "publish": "npm run build & npm version patch & npm publish",
     "test": "jest --config jestconfig.json"
   },
   "author": "",
@@ -25,6 +26,9 @@
     "@types/react": "^17.0.0",
     "react": "^17.0.2",
     "@vue/reactivity": "^3.0.11",
-    "@types/lodash": "^4.14.165"
+    "@types/lodash": "^4.14.165",
+    "@baidu/bce-portal-helper": "^1.0.1",
+    "@baidu/bce-portal-services": "^1.0.4",
+    "@baidu/ioc": "^1.0.0"
   }
 }
