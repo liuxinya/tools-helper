@@ -347,8 +347,8 @@
 
 "@baidu/bce-services@^1.0.0":
   version "1.0.0"
-  resolved "http://registry.npm.baidu-int.com/@baidu%2fbce-services/-/bce-services-1.0.0.tgz#b259a44f2adef4354fd76a39273c7a802c2142df"
-  integrity sha512-i0xPeTOMppwut1ZqxCZuTSR/k0pmPU9qL06iUo34iGcQEymDfLC90462XXX/uPeyhj5HzgQ5IF91UnYV8EmzSw==
+  resolved "http://registry.npm.baidu-int.com/@baidu%2fbce-services/-/bce-services-1.0.0.tgz#abdee8ef87cb667b21f5426b29ce38d4f9b93a63"
+  integrity sha512-6XSyuGeIwkro6TIs2m+IEwjXlpaWzq0sJMace5dugrrkF2mES6lGrqdcojJeV52KlcVwmcEZG5xk9wwSbU0/dg==
   dependencies:
     "@baidu/bce-helper" "^1.0.0"
     "@baidu/ioc" "^1.0.0"

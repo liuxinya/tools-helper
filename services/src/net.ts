@@ -1,7 +1,6 @@
-import message from 'antd/lib/message';
 import Axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
 import {Injectable, Ioc} from '@baidu/ioc';
-import {replaceOfString, isString} from '@baidu/bce-helper';
+import {replaceOfString, isFalse} from '@baidu/bce-helper';
 
 @Injectable()
 export class UNetService {
@@ -59,16 +58,13 @@ export class UNetService {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 await Axios[methods](url, config).then((data: AxiosResponse<ResponseObj<K>>) => {
-                    // 有可能返回的是个文件流
-                    if (isString(data.data) || data.data.success) {
-                        resolve(data.data);
-                    } else {
-                        reject(data.data);
+                    if (!data.data || isFalse(data.data.success)) {
+                        reject(data.data || null);
                     }
+                    resolve(data.data);
                 });
             } catch (e) {
                 reject(e);
-                message.error('* ' + JSON.stringify(e));
             }
         });
     }
@@ -99,9 +95,13 @@ export interface ResponseObj<T, K = null> {
 
 // http message
 export interface ResponseMsgObj {
-    detail: any;
+    detail?: any;
     code?: number;
-    global: string;
+    requestId?: string;
+    status?: number;
+    success?: boolean;
+    redirect?: string;
+    global?: string;
 }
 
 // http分页响应
