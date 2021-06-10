@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {Ioc} from '@baidu/ioc';
 import {UNetService, NetMethods} from '@baidu/bce-portal-services';
+import {isUndefined, isFunction} from '@baidu/bce-portal-helper';
 import {useOnMount} from './lifeCycle';
 
 
@@ -11,10 +12,11 @@ import {useOnMount} from './lifeCycle';
  * @param isImmediately 是否立即触发一次请求
  */
 
-type httpConfig<Req, Res, ResOrigin> = {
+ type httpConfig<Req, Res, ResOrigin, Q> = {
     methods: NetMethods;
     url: string;
     params?: Req;
+    query?: Q;
     // 数据转换
     transform?: (p: ResOrigin) => Res;
     succCallBack?: (p: Res) => void;
@@ -23,23 +25,20 @@ type httpConfig<Req, Res, ResOrigin> = {
     defaultValue?: Partial<Res>;
 };
 
-
-const net = Ioc(UNetService);
-
-export function useHttp<Req, Res, ResOrigin = Res>(
-    httpConfig: httpConfig<Req, Res, ResOrigin>,
-    isImmediately?: boolean
+export function useHttp<Req, Res, ResOrigin = Res, Q = any>(
+    httpConfig: httpConfig<Req, Res, ResOrigin, Q>,
+    isImmediately?: boolean | (() => boolean)
 ): [
     Res,
     React.Dispatch<React.SetStateAction<Res>>,
-    (params: Req, config?: Partial<httpConfig<Req, Res, ResOrigin>>) => Promise<Res>,
+    (params?: Req, config?: Partial<httpConfig<Req, Res, ResOrigin, Q>>) => Promise<Res>,
     boolean
 ] {
     const [data, setData] = useState<Res>((httpConfig.defaultValue as Res) || null);
     const [loading, setLoading] = useState<boolean>(false);
     const http = (
         params = httpConfig.params,
-        config: Partial<httpConfig<Req, Res, ResOrigin>> = httpConfig
+        config: Partial<httpConfig<Req, Res, ResOrigin, Q>> = httpConfig
     ): Promise<Res> => {
         // 外界可二次更改所有参数
         const newConfig = {
@@ -49,23 +48,24 @@ export function useHttp<Req, Res, ResOrigin = Res>(
         };
         return new Promise((resolve, reject) => {
             setLoading(true);
-            net[newConfig.methods]<Req, Res>(newConfig.url, params).then(res => {
+            Ioc(UNetService)[newConfig.methods]<Req, Res, Q>(newConfig.url, params, newConfig.query).then(res => {
                 // 考虑分页数据
-                const resOrigin = res.result || res.page;
-                const resRes = (newConfig.transform?.(resOrigin as any) ?? resOrigin) as Res;
-                setData(resRes);
-                newConfig.isExecSuccessCallBack && newConfig.succCallBack?.(resRes);
+                const resOrigin = isUndefined(res.result) ? (res.page || res) : res.result;
+                const resRes = newConfig.transform ? newConfig.transform((resOrigin as any)) : resOrigin;
+                setData(resRes as Res);
+                newConfig.succCallBack && newConfig.isExecSuccessCallBack && newConfig.succCallBack(resRes as Res);
                 setLoading(false);
-                resolve(resRes);
+                resolve(resRes as Res);
             }).catch(err => {
-                newConfig.errorCallBack?.(err);
+                newConfig.errorCallBack && newConfig.errorCallBack(err);
                 setLoading(false);
                 reject(err);
             });
         });
     };
     useOnMount(() => {
-        if (isImmediately) {
+        const isImmediatelyTem = isFunction(isImmediately) ? (isImmediately as any)() : isImmediately;
+        if (isImmediatelyTem) {
             http(httpConfig.params);
         }
     });
