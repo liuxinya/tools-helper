@@ -1,5 +1,5 @@
 import {useMemo, useReducer} from 'react';
-import {RxObject} from '@baidu/bce-portal-helper';
+import {RxObject} from '@baidu/bce-helper';
 import {useOnMount} from './lifeCycle';
 
 const rx = new RxObject();

@@ -4,7 +4,7 @@
 import {stop, reactive, effect} from '@vue/reactivity';
 import {useMemo, useEffect, useCallback} from 'react';
 import * as _ from 'lodash';
-import {isObject, isArray} from '@baidu/bce-portal-helper';
+import {isObject, isArray} from '@baidu/bce-helper';
 import {useForceUpdate} from './lifeCycle';
 
 export function useReactive<T extends object>(initState: T) {

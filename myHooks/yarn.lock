@@ -338,19 +338,19 @@
     "@babel/helper-validator-identifier" "^7.14.5"
     to-fast-properties "^2.0.0"
 
-"@baidu/bce-portal-helper@^1.0.1":
-  version "1.0.1"
-  resolved "http://registry.npm.baidu-int.com/@baidu%2fbce-portal-helper/-/bce-portal-helper-1.0.1.tgz#d245d7bacdcb8ce2f4b6a06f56b52cfafa31087f"
-  integrity sha512-fdytSbIQHL+DYpJSBbNbGghlpqsybFzPtxC4SA/+NTumZstvX/0vhscyhMWCDsfI6zmSxoTqGCSHtRXQFX3/BA==
+"@baidu/bce-helper@^1.0.0":
+  version "1.0.0"
+  resolved "http://registry.npm.baidu-int.com/@baidu%2fbce-helper/-/bce-helper-1.0.0.tgz#d332bc39e3015b0f5f29387a8575b466bc0ead41"
+  integrity sha512-q2h9e5eyxBD+qf/pVDLvbECX3tzEfwNKXW1mCFv4dHROAfAPXKpSoe3hu6JsUIRDHe9Nj7J0sy6vblPAW2wKTQ==
   dependencies:
     moment "^2.29.1"
 
-"@baidu/bce-portal-services@^1.0.4":
-  version "1.0.5"
-  resolved "http://registry.npm.baidu-int.com/@baidu%2fbce-portal-services/-/bce-portal-services-1.0.5.tgz#48e2d3e0de0663ca69ede298bd56ca2757e51542"
-  integrity sha512-AXSBDQc5NcybShxcy1O4Wg7Wu260NcoMyr6HFM1Wn5Zf/p5/CTi8EA/EadrsCtO90PFLi8Uxajv3Vo+kVtqe/Q==
+"@baidu/bce-services@^1.0.0":
+  version "1.0.0"
+  resolved "http://registry.npm.baidu-int.com/@baidu%2fbce-services/-/bce-services-1.0.0.tgz#b259a44f2adef4354fd76a39273c7a802c2142df"
+  integrity sha512-i0xPeTOMppwut1ZqxCZuTSR/k0pmPU9qL06iUo34iGcQEymDfLC90462XXX/uPeyhj5HzgQ5IF91UnYV8EmzSw==
   dependencies:
-    "@baidu/bce-portal-helper" "^1.0.1"
+    "@baidu/bce-helper" "^1.0.0"
     "@baidu/ioc" "^1.0.0"
     "@types/react-dom" "^17.0.0"
     antd "^4.8.2"

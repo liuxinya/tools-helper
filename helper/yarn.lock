@@ -297,21 +297,6 @@
     "@babel/helper-validator-identifier" "^7.14.5"
     to-fast-properties "^2.0.0"
 
-"@baidu/bce-helper@^1.0.0":
-  version "1.0.0"
-  resolved "http://registry.npm.baidu-int.com/@baidu%2fbce-helper/-/bce-helper-1.0.0.tgz#d332bc39e3015b0f5f29387a8575b466bc0ead41"
-  integrity sha512-q2h9e5eyxBD+qf/pVDLvbECX3tzEfwNKXW1mCFv4dHROAfAPXKpSoe3hu6JsUIRDHe9Nj7J0sy6vblPAW2wKTQ==
-  dependencies:
-    moment "^2.29.1"
-
-"@baidu/ioc@^1.0.0":
-  version "1.0.0"
-  resolved "http://registry.npm.baidu-int.com/@baidu%2fioc/-/ioc-1.0.0.tgz#24aabecb2688a11e9c7b957516adf7f7c6ede688"
-  integrity sha512-7Rzym3/A9ognb3Dp4UFQToD5I5NT90dXbpE7XIvtLBw+/UM05Dk60mvID9kozLx+zL+jySaxoMw5AR+scvLiwQ==
-  dependencies:
-    reflect-metadata "^0.1.12"
-    typescript "^4.0.2"
-
 "@bcoe/v8-coverage@^0.2.3":
   version "0.2.3"
   resolved "http://registry.npm.baidu-int.com/@bcoe%2fv8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
@@ -2178,11 +2163,6 @@ react-is@^17.0.1:
   resolved "http://registry.npm.baidu-int.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha1-5pHUqOnHiTZWVVOas3J2Kw77VPA=
 
-reflect-metadata@^0.1.12:
-  version "0.1.13"
-  resolved "http://registry.npm.baidu-int.com/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
-  integrity sha1-Z648pXyXKiqhZCsQ/jY/4y1J3Ag=
-
 require-directory@^2.1.1:
   version "2.1.1"
   resolved "http://registry.npm.baidu-int.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
@@ -2469,7 +2449,7 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^4.0.2, typescript@^4.3.2:
+typescript@^4.3.2:
   version "4.3.2"
   resolved "http://registry.npm.baidu-int.com/typescript/-/typescript-4.3.2.tgz#399ab18aac45802d6f2498de5054fcbbe716a805"
   integrity sha1-OZqxiqxFgC1vJJjeUFT8u+cWqAU=

@@ -1,6 +1,6 @@
 {
-  "name": "@baidu/bce-portal-services",
-  "version": "1.0.5",
+  "name": "@baidu/bce-services",
+  "version": "1.0.0",
   "description": "项目通用服务、基于react的动态组件、发布订阅、请求",
   "main": "lib/index.js",
   "directories": {
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run build",
     "test": "jest --config jestconfig.json"
   },
   "author": "",
@@ -20,7 +21,7 @@
   },
   "dependencies": {
     "@types/react-dom": "^17.0.0",
-    "@baidu/bce-portal-helper": "^1.0.1",
+    "@baidu/bce-helper": "^1.0.0",
     "@baidu/ioc": "^1.0.0",
     "axios": "^0.21.0",
     "antd": "^4.8.2",

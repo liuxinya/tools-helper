@@ -1,6 +1,6 @@
 {
-  "name": "@baidu/bce-portal-helper",
-  "version": "1.0.1",
+  "name": "@baidu/bce-helper",
+  "version": "1.0.0",
   "description": "项目通用工具",
   "main": "lib/index.js",
   "directories": {

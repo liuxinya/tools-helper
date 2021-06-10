@@ -1,7 +1,7 @@
 import message from 'antd/lib/message';
 import Axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
 import {Injectable, Ioc} from '@baidu/ioc';
-import {replaceOfString, isString} from '@baidu/bce-portal-helper';
+import {replaceOfString, isString} from '@baidu/bce-helper';
 
 @Injectable()
 export class UNetService {

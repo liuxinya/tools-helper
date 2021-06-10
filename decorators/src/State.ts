@@ -1,7 +1,7 @@
 // 这个是用来标记类属性的
 // 被装饰的属性 被实例原型deps数组所收集
 
-import {isArray} from '@baidu/bce-portal-helper';
+import {isArray} from '@baidu/bce-helper';
 
 
 export function State(isResetWhenDestroy = true) {

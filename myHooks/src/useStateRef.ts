@@ -1,5 +1,5 @@
 import {useState, useRef, useCallback, Dispatch, SetStateAction} from 'react';
-import {isFunction} from '@baidu/bce-portal-helper';
+import {isFunction} from '@baidu/bce-helper';
 
 
 // 对state的扩展

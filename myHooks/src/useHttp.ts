@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {Ioc} from '@baidu/ioc';
-import {UNetService, NetMethods} from '@baidu/bce-portal-services';
-import {isUndefined, isFunction} from '@baidu/bce-portal-helper';
+import {UNetService, NetMethods} from '@baidu/bce-services';
+import {isUndefined, isFunction} from '@baidu/bce-helper';
 import {useOnMount} from './lifeCycle';
 
 
