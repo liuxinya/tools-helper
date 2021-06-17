@@ -1,8 +1,8 @@
 {
-  "name": "@baidu/bce-decorators",
-  "version": "1.0.0",
-  "description": "通用装饰器",
-  "main": "lib/index.js",
+  "name": "@baidu/bce-services",
+  "version": "0.0.0",
+  "description": "项目通用服务、基于react的动态组件、发布订阅、请求",
+  "main": "dist/index.js",
   "directories": {
     "test": "test"
   },
@@ -21,9 +21,15 @@
   },
   "dependencies": {
     "@baidu/bce-helper": "^1.0.0",
-    "@baidu/ioc": "^1.0.0"
+    "@baidu/ioc": "^1.0.0",
+    "@types/react-dom": "^17.0.0",
+    "axios": "^0.21.0",
+    "react-dom": "^17.0.2"
   },
   "files": [
-    "lib/**/*"
-  ]
+    "dist/**/*"
+  ],
+  "publishConfig": {
+    "directory": "dist"
+  }
 }

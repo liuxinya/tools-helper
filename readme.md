@@ -1,11 +1,11 @@
 ## 更新指南
 
-1. 手动更新`package.json`版本号, 对，是手动，谁想自动化，自行配置`scripts`吧（为了方便新项目同步最新版本，这里只发小版本，别动大版本）
+1. 安装依赖
 
-2. `npm publish` 发布
+```ts
+lerna bootstrap
+```
 
-## 其他说明
+2. 更新包内容之后 可执行一次 `lerna changed` 查看待发布包
 
-1. 依赖项目记得都更新下依赖，可直接记下最新版本号去项目地下进行替换
-
-2. 因为不会更新大版本的缘故，也可以将项目下面的 `yarn.lock`文件删除，然后重新 install
+3. 没问题执行  `lerna run build`  `lerna publish`
