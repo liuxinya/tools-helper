@@ -19,15 +19,17 @@ export class UNetService {
             Axios.interceptors.response.use(interceptor.response);
         });
     }
+    static setWithCredentials(withCredentials: boolean) {
+        Axios.defaults.withCredentials = withCredentials;
+    }
     get<T, K, Q = never>(url: string, params?: T, query?: Q, config: AxiosRequestConfig = {}): Promise<ResponseObj<K>> {
         config.params = params;
         url = this.urlHandler(url, query);
         return this.sendData<T, K>('get', url, config);
     }
     post<T, K, Q = never>(url: string, params?: T, query?: Q, config: AxiosRequestConfig = {}): Promise<ResponseObj<K>> {
-        config.params = params;
         url = this.urlHandler(url, query);
-        return this.sendData<T, K>('post', url, config.params);
+        return this.sendData<T, K>('post', url, params, config);
     }
     delete<T, K, Q = never>(url: string, params?: T, query?: Q, config: AxiosRequestConfig = {}): Promise<ResponseObj<K>> {
         config.params = params;
@@ -35,11 +37,9 @@ export class UNetService {
         return this.sendData<T, K>('delete', url, config);
     }
     put<T, K, Q = never>(url: string, params?: T, query?: Q, config: AxiosRequestConfig = {}): Promise<ResponseObj<K>> {
-        config.params = params;
         url = this.urlHandler(url, query);
-        return this.sendData<T, K>('put', url, config.params);
+        return this.sendData<T, K>('put', url, params, config);
     }
-
     private urlHandler<Q>(url: string, query: Q) {
         if (query) {
             const assemblyUrlQuery: any = {};
@@ -51,13 +51,12 @@ export class UNetService {
             return url;
         }
     }
-
-    private sendData<T, K>(methods: NetMethods, url: string, config: AxiosRequestConfig | T = {}): Promise<ResponseObj<K>> {
+    private sendData<T, K>(methods: NetMethods, url: string, config1: AxiosRequestConfig | T = {}, config2: AxiosRequestConfig = null): Promise<ResponseObj<K>> {
         return new Promise(async (resolve, reject) => {
             try {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                await Axios[methods](url, config).then((data: AxiosResponse<ResponseObj<K>>) => {
+                await Axios[methods](url, config1, config2).then((data: AxiosResponse<ResponseObj<K>>) => {
                     if (!data.data || isFalse(data.data.success)) {
                         reject(data.data || null);
                     }
