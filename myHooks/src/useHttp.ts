@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {Ioc} from '@baidu/ioc';
+import {AxiosRequestConfig} from 'axios';
 import {UNetService, NetMethods} from '@baidu/bce-services';
 import {isUndefined, isFunction} from '@baidu/bce-helper';
 import {useOnMount} from './lifeCycle';
@@ -16,6 +17,7 @@ import {useOnMount} from './lifeCycle';
     methods: NetMethods;
     url: string;
     params?: Req;
+    config?: AxiosRequestConfig;
     query?: Q;
     // 数据转换
     transform?: (p: ResOrigin) => Res;
@@ -48,7 +50,7 @@ export function useHttp<Req, Res, ResOrigin = Res, Q = any>(
         };
         return new Promise((resolve, reject) => {
             setLoading(true);
-            Ioc(UNetService)[newConfig.methods]<Req, Res, Q>(newConfig.url, params, newConfig.query).then(res => {
+            Ioc(UNetService)[newConfig.methods]<Req, Res, Q>(newConfig.url, params, newConfig.query, newConfig.config).then(res => {
                 // 考虑分页数据
                 const resOrigin = isUndefined(res.result) ? (res.page || res) : res.result;
                 const resRes = newConfig.transform ? newConfig.transform((resOrigin as any)) : resOrigin;
