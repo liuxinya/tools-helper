@@ -6,7 +6,7 @@ import {useStateRef} from './useStateRef';
 import {useOnMount} from './lifeCycle';
 
 // 基于body的无限滚动
-export default function useInfiniteList<T, P = any>(props: {
+export function useInfiniteList<T, P = any>(props: {
     distanceBottom: number;
     pageSize?: number;
     httpUrl?: string | (() => string);
