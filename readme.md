@@ -8,9 +8,9 @@ lerna bootstrap
 
 2. 更新包内容之后 可执行一次 `lerna changed` 查看待发布包
 
-3. 没问题执行  `lerna run build`  `lerna publish`
+3. 编译 `lerna run build`  
 
-
+4. 发布 `lerna publish` 只发布不提交至git仓库 `lerna publish --no-push`
 
 
 ## `其他`
@@ -22,3 +22,13 @@ lerna bootstrap
 * `lerna run build`
 
     - 执行所有 package 的 `build` 指令
+
+* `发布失败了，包版本已经被lerna更改了咋办`
+
+回退方案
+```
+lerna publish from-git
+
+git reset --hard HEAD~1 && git tag -d $(git log --date-order --tags --simplify-by-decoration --pretty=format:'%d' | head -1 | tr -d '()' | sed 's/,* tag://g')
+
+```
