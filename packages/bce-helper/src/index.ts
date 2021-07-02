@@ -8,5 +8,6 @@ export * from './download.helper';
 export * from './file';
 export * from './jsonp';
 export * from './location';
+export * from './object';
 export {DomHelper} from './dom';
 export {RxObject} from './rx';
