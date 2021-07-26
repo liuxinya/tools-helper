@@ -1,0 +1,20 @@
+{
+  "name": "@baidu/bce-storage",
+  "version": "1.0.0",
+  "description": "跨域访问cloud.baidu.com域下的localStorage和sessionStorage",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "author": "luhuan",
+  "license": "ISC",
+  "files": [
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "global": "^4.4.0",
+    "typescript": "^4.3.5"
+  }
+}
