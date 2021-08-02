@@ -21,3 +21,21 @@ export function downloadFileByFrontend(data: BlobPart, fileName: string) {
         window.open(URL.createObjectURL(file));
     }
 }
+
+
+export function downFileByArrayBuffer(data: BlobPart, fileName: string) {
+    if (typeof window.navigator.msSaveBlob !== 'undefined') {
+        window.navigator.msSaveBlob(new Blob([data]), 'test.xls');
+    }
+    else {
+        const url = window.URL.createObjectURL(new Blob([data]));
+        const link = document.createElement('a');
+        link.style.display = 'none';
+        link.href = url;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link); // 下载完成移除元素
+        window.URL.revokeObjectURL(url); // 释放掉blob对象
+    }
+}
